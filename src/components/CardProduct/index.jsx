@@ -1,41 +1,42 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { config } from "../../config"
-import { 
-    Card,
-    CardHeader,
-    CardContent,
-    Typography,
-    Button,
-    Box,
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  Typography,
+  Button,
+  Box,
 } from "@mui/material"
 import { manejarCarrito } from "../../store/cart"
 import { Image } from "antd"
+import { Link } from "react-router-dom"
 
 export const CardProduct = ({ id }) => {
-    const [product, setProduct] = useState({})
+  const [product, setProduct] = useState({})
 
-    const { agregar } = manejarCarrito();
+  const { agregar } = manejarCarrito();
 
-    const fetch = async () => {
-        const url = `${config.VITE_API_URL}products/${id}`
-        const response = await axios.get(url)
+  const fetch = async () => {
+    const url = `${config.VITE_API_URL}products/${id}`
+    const response = await axios.get(url)
 
-        setProduct(response.data)
-    }
+    setProduct(response.data)
+  }
 
-    useEffect (() => {
-        fetch()
-    }, [])
+  useEffect(() => {
+    fetch()
+  }, [])
 
-    const handleAddProducto = () => {
-        agregar(product);
-    };
+  const handleAddProducto = () => {
+    agregar(product);
+  };
 
   return (
     <Card sx={{ width: "350px", margin: "20px" }}>
-        <CardHeader title={product.title} subheader={product.category} />
-        <CardContent sx={{ padding: 0 }}>
+      <CardHeader title={product.title} subheader={product.category} />
+      <CardContent sx={{ padding: 0 }}>
         <Image
           src={product.image}
           height={200}
@@ -48,10 +49,12 @@ export const CardProduct = ({ id }) => {
             <Button variant="contained" onClick={handleAddProducto}>
               Comprar
             </Button>
-            <Button variant="outlined">Ver</Button>
+            <Link to={`/productos/${id}`}>
+              <Button variant="outlined">Ver</Button>
+            </Link>
           </Box>
         </Box>
-        </CardContent>
+      </CardContent>
     </Card>
-)
+  )
 }

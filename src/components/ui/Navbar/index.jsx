@@ -71,16 +71,25 @@ export const Navbar = () => {
             </Toolbar>
           ) : (
             <Toolbar>
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2 }}
-                onClick={() => setOpenMenu(!openMenu)}
-              >
-                <MenuIcon />
-              </IconButton>
+              <Typography sx={{
+                  flexGrow: 1,
+                }}>
+                <IconButton
+                  size="large"
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  sx={{ mr: 2 }}
+                  onClick={() => setOpenMenu(!openMenu)}
+                  >
+                  <MenuIcon />
+                </IconButton>
+              </Typography>
+              <IconButton onClick={() => setOpen(true)}>
+                  <Badge badgeContent={carrito.length} color="secondary">
+                    <ShoppingCartIcon sx={{ color: "white" }} />
+                  </Badge>
+                </IconButton>
             </Toolbar>
           )}
         </Container>
