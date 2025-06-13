@@ -34,18 +34,19 @@ export const CardProduct = ({ id }) => {
   };
 
   return (
-    <Card sx={{ width: "350px", margin: "20px" }}>
+    <Card sx={{ width: "350px", margin: "20px", display: "flex", flexDirection: "column" }}>
       <CardHeader title={product.title} subheader={product.category} />
-      <CardContent sx={{ padding: 0 }}>
+      <CardContent sx={{ flexGrow: 1, display: "flex", flexDirection: "column", padding: 0 }}>
         <Image
           src={product.image}
           height={200}
           width={"100%"}
           style={{ objectFit: "cover", margin: 0 }}
         />
-        <Box sx={{ padding: 2 }}>
+        <Box sx={{ flexGrow: 1, padding: 2 }}>
           <Typography variant="body1">{product.description}</Typography>
-          <Box sx={{ display: "flex", justifyContent: "space-evenly", mt: 2 }}>
+        </Box>
+          <Box sx={{ display: "flex", justifyContent: "space-evenly", mt: 2, paddingX: 2, paddingBottom: 2 }}>
             <Button variant="contained" onClick={handleAddProducto}>
               Comprar
             </Button>
@@ -53,7 +54,6 @@ export const CardProduct = ({ id }) => {
               <Button variant="outlined">Ver</Button>
             </Link>
           </Box>
-        </Box>
       </CardContent>
     </Card>
   )

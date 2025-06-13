@@ -30,7 +30,7 @@ export const Products = () => {
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
-        gap: "5",
+        gap: 2,
         justifyContent: "center",
       }}
     >
