@@ -32,6 +32,8 @@ export const Products = () => {
         flexWrap: "wrap",
         gap: 2,
         justifyContent: "center",
+        paddingTop: "80px",
+        backgroundColor: '#f5f5f5',
       }}
     >
         {isLoading ? (
