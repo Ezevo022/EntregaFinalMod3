@@ -18,6 +18,7 @@ export const CardProduct = ({ id }) => {
 
   const { agregar } = manejarCarrito();
 
+  // Utlizando la variable de entorno VITE_API_URL se consulta a la API
   const fetch = async () => {
     const url = `${config.VITE_API_URL}products/${id}`
     const response = await axios.get(url)
@@ -29,6 +30,7 @@ export const CardProduct = ({ id }) => {
     fetch()
   }, [])
 
+  // Con la funcion desagregada de carrito se maneja la adicion de productos
   const handleAddProducto = () => {
     agregar(product);
   };

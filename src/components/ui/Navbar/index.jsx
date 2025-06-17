@@ -111,6 +111,7 @@ export const Navbar = () => {
       <Drawer open={open} onClose={() => setOpen(false)}>
         {carrito.map((producto) => (
           <Box
+            key={producto.id} // Key para que no salte error de .map
             sx={{
               display: "flex",
               gap: 2,

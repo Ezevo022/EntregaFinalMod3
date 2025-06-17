@@ -15,7 +15,7 @@ export const Product = () => {
 
   const productId = parseInt(id);
 
-  // Validar que el ID esté entre 1 y 20
+  // Validar que el ID esté entre 1 y 20 sino se redirecciona a /productos
   if (isNaN(productId) || productId < 1 || productId > 20) {
     return <Navigate to="/productos" replace />
   }

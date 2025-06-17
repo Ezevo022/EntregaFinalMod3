@@ -1,7 +1,10 @@
 import { persist } from "zustand/middleware";
 import { create } from "zustand";
 
+// Se crea el estado globlal con Zustand para manejar el carrito
 export const manejarCarrito = create(
+  // Se utiliza persist para mantener el estado global en este caso en
+  // el localstorage y asi mantener el carrito
   persist(
     (set) => ({
       carrito: [],
